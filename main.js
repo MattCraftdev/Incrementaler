@@ -1,4 +1,18 @@
 let knowledge = 0;
+let baseIncrease = 1;
+
+
+
+document.getElementById("createKnowledge").addEventListener("click", () => {
+    knowledge += baseIncrease;
+    updateKnowledge();
+});
+
+
+function updateKnowledge() {
+    document.getElementById("displayKnowledge").innerText = "Knowledge: " + knowledge;
+}
+
 
 
 // Time System
@@ -19,3 +33,20 @@ function updateTime() {
     };
 };
 
+//Tabs
+const TabButtons= document.querySelectorAll(".tab-button");
+
+TabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const tabId = button.dataset.tab;
+
+        // Hides all tabs
+        document.querySelectorAll(".tab-content").forEach(tab => {
+            tab.style.display = "none";
+
+        });
+
+        // Shows selected tab
+        document.getElementById(tabId).style.display = "block";
+    });
+});

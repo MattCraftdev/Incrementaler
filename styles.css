@@ -1,0 +1,63 @@
+.hidden {
+    display:none;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tabs button{
+    background-color:#003507;
+    color:white;
+    padding: 15px;
+    border: none;
+    font-size:25px;
+    font-family:'Times New Roman';
+}
+
+.tabs button:hover{
+    background-color:#008111;
+    color:white;
+    padding: 15px;
+    border: none;
+    font-size:25px;
+    font-family:'Times New Roman';
+}
+
+/* Buttons inside tabs*/
+
+.anyButton button{
+    background-color:#005a95;
+    color:white;
+    padding: 15px;
+    border: none;
+    font-size:25px;
+    font-family:'Times New Roman';
+}
+
+.anyButton button:hover{
+    background-color:#68afde;
+    color:white;
+    padding: 15px;
+    border: none;
+    font-size:25px;
+    font-family:'Times New Roman';
+}
+
+#Story {
+    position: absolute;
+    top: 0%;
+    left: 75%; 
+    background: #939393;
+    padding: 1%;
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 2px solid #000000;
+}
+
+#storyTitle {
+    font-size: 30px;
+    font-family: "georgia";
+}
