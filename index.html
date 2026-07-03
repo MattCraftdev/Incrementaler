@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Incremental Game</title>
+
 </head>
 <body>
+
     <div class = "displayVaribles">
         <p id= "displayKnowledge">Knowledge: </p>
-        <p id= "displayDepression">Knowledge: </p>
-        <p id= "displayDay">Age: </p>
-        <p id= "displayYear">Year: </p>
+        <p id= "displayDepression">Mood: </p>
+        <p id= "displayDay">Day: </p>
+        <p id= "displayYear">Age: </p>
+
+        <p id="displayLifespan" class = "hidden">Lifespan: </p>
     </div>
+
 
     <div class = "tabs">
         <button class = "tab-button" data-tab="Creation">Creation</button>
@@ -19,13 +25,21 @@
         <button class = "tab-button" data-tab="Work">Work</button>
     </div>
 
+
     <nav class = "tab-content" id = "Creation">
         <button id = "createKnowledge" class = "anyButton" >Birth the seed of knowledge</button>
 
 
-        <div class="progress-container" title = "Focus will increase your learning speed on other subjects" id = "vitbtn">
-            <div class="progress-bar" id="vit"></div>
-            <span class= "progress-text" id = "vitLevelDisplay">Vitality Level: 1</span>
+
+
+
+
+
+        <div class = "hidden" id="vitContainer">
+            <div class="progress-container" title = "Vitality increases your lifespan through unknown means.." id = "vitbtn">
+                <div class="progress-bar" id="vit"></div>
+                <span class= "progress-text" id = "vitLevelDisplay">Vitality Level: 1</span>
+            </div>
         </div>
 
     </nav>
@@ -33,14 +47,20 @@
 
 
     <nav class = "tab-content" id = "Inventions">
-        <button>w</button>
+
+        <br>
+        <button id = "showlifespantimer" class = "hidden">Peer into the future - Costs 1000 Knowledge</button>
+        <button id = "unlock1" class = "hidden">Create Health Exercise Plan - Cost 100 Knowledge</button>
+
 
     </nav>
+
 
     <nav class = "tab-content" id = "Work">
         <button>awd</button>
 
     </nav>
+
 
     <nav id = "Story">
         <h1 id = "storyTitle">Story</h1>
@@ -50,13 +70,11 @@
     </nav>  
 
 
-
-
-
 </body>
 
     <script src="main.js"></script>
     <script src="bars.js"></script>
+    <script src="upgrade.js"></script>
     <link rel="stylesheet" href="styles.css">
 
 </html>

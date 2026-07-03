@@ -1,7 +1,5 @@
 // Connections & Variables
 
-
-
 let lifespan = 50;
 // Class OOP for progress bars
 

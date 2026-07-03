@@ -12,13 +12,11 @@ Ideas:
 - You CAN prevent this by getting higher VIT, which is unlocked by paying 100 knowledge
 
 
-
 */
 
 // Knowledge accumilination system
 document.getElementById("createKnowledge").addEventListener("click", () => {
     knowledge += baseIncrease;
-
     updateKnowledge();
 });
 
@@ -27,7 +25,6 @@ document.getElementById("createKnowledge").addEventListener("click", () => {
 function updateKnowledge() {
     document.getElementById("displayKnowledge").innerText = "Knowledge: " + knowledge;
 };
-
 
 // Chatbox creation to send a message
 
@@ -59,8 +56,9 @@ setInterval(() => {
     
 
     document.getElementById("displayDepression").innerText = "Mood: " + depressionStatus;
-
+    
     updateTime();
+    updateLifespan();
 }, 1000);
     
 // Time System
@@ -78,7 +76,9 @@ function updateTime() {
     document.getElementById("displayYear").innerText = "Age: " + year;
 };
 
-
+function updateLifespan() {
+    document.getElementById("displayLifespan").innerText = "Lifespan: " + lifespan;
+}
 
 //Tabs
 const TabButtons= document.querySelectorAll(".tab-button");

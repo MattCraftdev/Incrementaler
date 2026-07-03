@@ -1,6 +1,13 @@
 Newest versions
 
-2026/07/02
+2026/07/03 12:31 AM - [0.5.0]
+- Added unlock when you get over 10 knowledge to appear in the "Inventions" tab, along with a story message
+- Optimized some code
+- The unlock now appears and disappears correctly
+- Vitality Bar is now "unlocked" from the first unlock
+- Added minor story bits :D
+- Added another upgrade, the lifespan timer which acts as VIT but costs more
+- Made the lifespan timer work and all this fillings with it
 
 2026/07/02 10:39 PM - [0.3.0]
 - Added Bars and vitality marker
@@ -17,5 +24,5 @@ Newest versions
 - Added story message box on the side
 - Added depression as a mechanic, mainly mood thoughssssssss
 
-July 1st 2026 - Initial Build [0] 3:33PM
+2026/07/01 3:33PM - Initial Build [0] 
 - Time system implemented
