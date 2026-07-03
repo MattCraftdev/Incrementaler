@@ -1,12 +1,5 @@
 .hidden {
     display:none;
-
-    background-color:#005a95;
-    color:rgb(0, 0, 0);
-    padding: 1%;
-    border: 2%;
-    font-size: 100%;
-    font-family:'Times New Roman';
 }
 
 .tab-content {

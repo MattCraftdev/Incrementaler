@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Incremental Game</title>
 
+    <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
 
@@ -23,6 +25,7 @@
         <button class = "tab-button" data-tab="Creation">Creation</button>
         <button class = "tab-button" data-tab="Inventions">Inventions</button>
         <button class = "tab-button" data-tab="Work">Work</button>
+        <button class = "tab-button" data-tab="Other">Other</button>
     </div>
 
 
@@ -68,14 +71,22 @@
 
         <p id = "messageplaceholder">Nothing is here.</p>
 
+    </nav> 
+
+    <nav class = "tab-content" id = "Other">
+        <h1>Help</h1>
+        <p>Knowledge: Used to unlock other upgrades</p>
+
+        <h1>Statistics</h1>
+
     </nav>  
+
+    <script src="functions.js" defer></script>
+    <script src="bars.js" defer></script>
+    <script src="upgrade.js" defer></script>
+    <script src="main.js" defer></script>
 
 
 </body>
-
-    <script src="main.js"></script>
-    <script src="bars.js"></script>
-    <script src="upgrade.js"></script>
-    <link rel="stylesheet" href="styles.css">
 
 </html>

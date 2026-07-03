@@ -1,5 +1,12 @@
 Newest versions
 
+2026/07/03 - [0.7.1]
+- Indirect knowledge cap with mood
+- Added other tab for guidence on the game and stats
+- Completely changed the mood system
+- Overclocked the upgrade system
+- Clean ups on loops
+
 2026/07/03 9:03 AM - [0.6.0]
 - Optimized and cleaned up some residule code
 - Modified depression system, fully renamed to mood and made edits

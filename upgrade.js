@@ -1,50 +1,61 @@
-//Unlocked Variables
-let showlifespantime = false;
-let unlocked1 = false;
+// Upgrade array
+const upgrades = [
+    {
+        id: "unlock1",
+        name: "Health Excercise Plan",
+        description: "Unlocks the ability to increase your vitality.",
+        cost: 100,
+        unlocked: false,
+        unlockamount: 10,
+        flavortext: "There's a plan I want to do. (Go to Inventions)",
+        purchased: false,
+        onpurchase: () => {
+            document.getElementById("vitContainer").classList.remove("hidden");
+            say("You design a strict routine. Your physical form feels... resilient.");
+        }
+    },
 
-const unlock1btn = document.getElementById("unlock1")
-const unlocklifespanTimer = document.getElementById("showlifespantimer")
+    {
+        id: "unlocklifespanTimer",
+        name: "Lifespan Timer",
+        description: "Unlocks the ability to see your lifespan.",
+        cost: 1000,
+        unlocked: false,
+        unlockamount: 200,
+        flavortext: "Something is being touched upon. You need to learn more to reveal it...",
+        purchased: false,
+        onpurchase: () => {
+            document.getElementById("displayLifespan").classList.remove("hidden");
+            say("You peer into the unknown. Your lifespan is revealed.");
+        }
+    },   
+
+]
 
 setInterval(() => {
-    // Shows VIT upgrade at 10 knowledge
-    if (knowledge>9 && unlocked1 == false) {
-        unlocked1 = true;
-        unlock1btn.classList.remove("hidden")
-        say("There's a plan I want to do. (Go to Inventions)")
+    for (const loop of upgrades) {
+        if (knowledge>loop.unlockamount && loop.unlocked == false) {
+            loop.unlocked = true;
+            document.getElementById(loop.id).classList.remove("hidden")        
+            say(loop.flavortext)
+        }
     };
-    
-    // Shows lifespan UP at 125 knowledge
-    if (knowledge>125 && showlifespantime == false) {
-        showlifespantime = true;
-        unlocklifespanTimer.classList.remove("hidden")
-        say("Something deeper calls me...(in the Inventions tab!)")
-    }
-
-
-    
 }, 500);
 
-// Upgrade Purchasing
-unlock1btn.addEventListener("click", () => { // Vit unlock Upgrade
-    if (knowledge>99) {
+function buyUpgrade(upgradeId) {
+    const upgrade = upgrades.find(item => item.id === upgradeId);
 
-        knowledge -= 100;
-        unlock1btn.classList.add("hidden")
-        document.getElementById("vitContainer").classList.remove("hidden")
+    if (upgrade && upgrade.cost<=knowledge && upgrade.purchased == false) {
 
-    } else {
-        say("Not enough knowledge! You don't know how to make a plan :(")
-    }
-});
+        knowledge -= upgrade.cost
+        upgrade.purchased = true;
+        document.getElementById(upgrade.id).classList.add("hidden")
+        upgrade.onpurchase();
 
-unlocklifespanTimer.addEventListener("click", () => { // Unlock the timer above
-    if (knowledge>999) {
+    };
+};
 
-        knowledge -= 1000;
-        unlocklifespanTimer.classList.add("hidden")
-        document.getElementById("displayLifespan").classList.remove("hidden")
 
-    } else {
-        say("How do you peer into the future without knowing anything! Get more insight buddy.")
-    }
+document.getElementById("unlock1").addEventListener("click", () => { // Vit unlock Upgrade
+    buyUpgrade("unlock1");
 });

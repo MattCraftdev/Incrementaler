@@ -1,5 +1,6 @@
 // Varibles
 let knowledge = 0;
+let knowledgeCap = 1000;
 let mood = 0;
 let baseIncrease = 1;
 let moodStatus = "Ok";
@@ -13,7 +14,12 @@ Ideas:
 
 // Knowledge accumilination system
 document.getElementById("createKnowledge").addEventListener("click", () => {
-    knowledge += baseIncrease;
+    if (mood<knowledgeCap) {
+        knowledge += baseIncrease;
+    } else {
+        say(`knowledge is ${knowledge}. Mood is ${mood}`)
+    }
+
 });
 
 // Chatbox creation to send a message

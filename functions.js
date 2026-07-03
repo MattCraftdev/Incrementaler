@@ -1,7 +1,10 @@
-// Knowledge exclusive loop
+// Display Loops
 setInterval(() => {
-    document.getElementById("displayKnowledge").innerText = "Knowledge: " + knowledge;  
-}, 250);
+    document.getElementById("displayKnowledge").innerText = "Knowledge: " + knowledge;
+
+    solveMood();
+    updateLifespan();
+}, 20);
 
 // Time System
 let day = 0;
@@ -23,31 +26,33 @@ function updateLifespan() {
 }
 
 function solveMood() {
-    mood = (knowledge-100) // EQ for mood over ticks
-
-    if (mood>99) {
+    let ratio = Math.min(knowledge/knowledgeCap, 1) // EQ for mood over ticks, base cap 1k
+    mood = ratio*1000
+    
+    if (mood>=knowledgeCap) {
+        mood = knowledgeCap;
         moodStatus = "Death awaits, calmly."
-        mood = 100;
     }
 
-    if (mood<50) {
+    else if (mood>(knowledgeCap/25)) {
         moodStatus = "Sad"
     }
 
-    if (mood<-50) {
+    else if (mood<=(knowledgeCap/75) && mood > 0) {
         moodStatus = "Happy"
     }
-    if (mood<-100) {
-        mood = -100;
+
+    else if (mood<=0) {
+        mood = 0;
         moodStatus = "Overjoyed";
-    };
+    } else {
+        moodStatus = "Ok"
+    }
 
     document.getElementById("displayMood").innerText = "Mood: " + moodStatus;
 };
 
-// Gameloop per second checker
+// Time exclusive
 setInterval(() => {
-    solveMood();
     updateTime();
-    updateLifespan();
 }, 1000);
