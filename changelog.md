@@ -1,6 +1,14 @@
 Newest versions
 
-2026/07/02 - [0.2.1]
+2026/07/02
+
+2026/07/02 10:39 PM - [0.3.0]
+- Added Bars and vitality marker
+- Vitality now extends "lifespan"
+- Updated Time System
+- ACTUALLY fixed depression Error, and added a bit more
+
+2026/07/02 9:15PM - [0.2.1]
 - Fixed error with depression
 
 2026/07/01 - [0.2.0]

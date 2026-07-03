@@ -44,6 +44,8 @@
     font-family:'Times New Roman';
 }
 
+/* Story box */
+
 #Story {
     position: absolute;
     top: 0%;
@@ -61,3 +63,38 @@
     font-size: 30px;
     font-family: "georgia";
 }
+
+/* Progress bars */
+.progress-container {
+    width: 350px;
+    background-color: #c2c2c2;
+    height: 40px;
+    margin: 10px 0;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    }
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #4caf50;
+    transition:all;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.progress-text {
+    font-weight: bold;
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}    
+
+
