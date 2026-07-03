@@ -27,10 +27,11 @@ setInterval(() => {
 // Upgrade Purchasing
 unlock1btn.addEventListener("click", () => { // Vit unlock Upgrade
     if (knowledge>99) {
+
         knowledge -= 100;
         unlock1btn.classList.add("hidden")
-        updateKnowledge();
         document.getElementById("vitContainer").classList.remove("hidden")
+
     } else {
         say("Not enough knowledge! You don't know how to make a plan :(")
     }
@@ -38,11 +39,10 @@ unlock1btn.addEventListener("click", () => { // Vit unlock Upgrade
 
 unlocklifespanTimer.addEventListener("click", () => { // Unlock the timer above
     if (knowledge>999) {
+
         knowledge -= 1000;
         unlocklifespanTimer.classList.add("hidden")
-        updateKnowledge();
         document.getElementById("displayLifespan").classList.remove("hidden")
-
 
     } else {
         say("How do you peer into the future without knowing anything! Get more insight buddy.")

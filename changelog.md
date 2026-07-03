@@ -1,5 +1,11 @@
 Newest versions
 
+2026/07/03 9:03 AM - [0.6.0]
+- Optimized and cleaned up some residule code
+- Modified depression system, fully renamed to mood and made edits
+- Further optimization from seperating into more files (added functions.js)
+- Added knowledge gameloop
+
 2026/07/03 12:31 AM - [0.5.0]
 - Added unlock when you get over 10 knowledge to appear in the "Inventions" tab, along with a story message
 - Optimized some code
