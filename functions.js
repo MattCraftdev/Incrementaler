@@ -1,44 +1,26 @@
 // Display Loops
 setInterval(() => {
-    document.getElementById("displayKnowledge").innerText = "Knowledge: " + knowledge;
+    document.getElementById("displayKnowledge").innerText = "Knowledge: " + player.knowledge;
 
     solveMood();
     updateLifespan();
 }, 20);
 
-// Time System
-let day = 0;
-let year = 0;
-
-function updateTime() {
-    day += 1;
-    if (day > 365) {
-        day = 0;
-        year += 1;
-    };
-
-    document.getElementById("displayDay").innerText = "Day: " + day;
-    document.getElementById("displayYear").innerText = "Age: " + year;
-};
-
-function updateLifespan() {
-    document.getElementById("displayLifespan").innerText = "Lifespan: " + lifespan;
-}
 
 function solveMood() {
-    let ratio = Math.min(knowledge/knowledgeCap, 1) // EQ for mood over ticks, base cap 1k
+    let ratio = Math.min(player.knowledge/player.knowledgeCap, 1) // EQ for mood over ticks, base cap 1k
     mood = ratio*1000
     
-    if (mood>=knowledgeCap) {
-        mood = knowledgeCap;
+    if (mood>=player.knowledgeCap) {
+        mood = player.knowledgeCap;
         moodStatus = "Death awaits, calmly."
     }
 
-    else if (mood>(knowledgeCap/25)) {
+    else if (mood>(player.knowledgeCap/25)) {
         moodStatus = "Sad"
     }
 
-    else if (mood<=(knowledgeCap/75) && mood > 0) {
+    else if (mood<=(player.knowledgeCap/75) && mood > 0) {
         moodStatus = "Happy"
     }
 
@@ -53,8 +35,35 @@ function solveMood() {
     
 };
 
-// Time exclusive
+
+// Time System
+let day = 0;
+let year = 0;
+
+function updateTime() {
+    day += 1;
+    if (day > 365) {
+        day = 0;
+        year += 1;
+    };
+
+    if (year>=lifespan) {
+        initiateDeath();
+    }
+
+    document.getElementById("displayDay").innerText = "Day: " + day;
+    document.getElementById("displayYear").innerText = "Age: " + year;
+};
+
+function updateLifespan() {
+    const lifespanReal = lifespan.toFixed(2) // Sets decimals to max 0.XX
+    document.getElementById("displayLifespan").innerText = "Lifespan: " + lifespanReal;
+}
+
 setInterval(() => {
     updateTime();
-    console.log(mood)
 }, 1000);
+
+function initiateDeath() {
+    console.log("Player has died, end.")
+}

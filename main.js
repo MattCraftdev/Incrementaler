@@ -1,9 +1,14 @@
-// Varibles
-let knowledge = 0;
-let knowledgeCap = 1000;
+
 let mood = 0;
-let baseIncrease = 1;
 let moodStatus = "Ok";
+
+const player = {
+    knowledge: 0,
+    knowledgeCap: 1000,
+    baseKnowledgeIncrease: 1,
+
+}
+
 
 /*
 Ideas:
@@ -12,15 +17,16 @@ Ideas:
 - Add chatbox message multiple
 - Make it so you actually lose when the lifespan runs out
 - Actually fix moood
+- Add more to upgrade system
 
 */
 
 // Knowledge accumilination system
 document.getElementById("createKnowledge").addEventListener("click", () => {
-    if (mood<knowledgeCap) {
-        knowledge += baseIncrease;
+    if (mood<player.knowledgeCap) {
+        player.knowledge += player.baseKnowledgeIncrease;
     } else {
-        console.log(`knowledge is ${knowledge}. Mood is ${mood}`)
+        console.log(`knowledge is ${player.knowledge}. Mood is ${mood}`)
     }
 
 });
@@ -31,7 +37,7 @@ function say(message) {
 };
 
 
-//Tabs
+// Tab code foreach
 const TabButtons= document.querySelectorAll(".tab-button");
 
 TabButtons.forEach(button => {

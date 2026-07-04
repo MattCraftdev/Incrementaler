@@ -1,4 +1,4 @@
-// Upgrade array
+// Upgrade array for each
 const upgrades = [
     {
         id: "unlock1",
@@ -52,9 +52,11 @@ const upgrades = [
 
 ]
 
+// Checks if any upgrade can be unlocked
+
 setInterval(() => {
     for (const loop of upgrades) {
-        if (knowledge>loop.unlockamount && loop.unlocked == false) {
+        if (player[loop.unlocktypecost]>loop.unlockamount && loop.unlocked == false) {
             loop.unlocked = true;
             if (document.getElementById(loop.id).classList.contains("hidden")) {
                 console.log(loop.id)
@@ -66,12 +68,13 @@ setInterval(() => {
     };
 }, 500);
 
+// Buying the upgrade
 function buyUpgrade(upgradeId) {
     const upgrade = upgrades.find(item => item.id === upgradeId);
 
-    if (upgrade && upgrade.cost<=knowledge && upgrade.purchased < upgrade.maxpurchases) {
+    if (upgrade && upgrade.cost<=player[upgrade.unlocktypecost] && upgrade.purchased < upgrade.maxpurchases) {
 
-        knowledge -= upgrade.cost
+        player[upgrade.unlocktypecost] -= upgrade.cost
         upgrade.purchased += 1
         document.getElementById(upgrade.id).classList.add("hidden")
         upgrade.onpurchase();
@@ -80,18 +83,9 @@ function buyUpgrade(upgradeId) {
     };
 };
 
-
-// Button to buying upgrades
-document.getElementById("unlock1").addEventListener("click", () => {
-    buyUpgrade("unlock1");
-});
-
-document.getElementById("unlock2").addEventListener("click", () => {
-    buyUpgrade("unlock2");
-});
-
-
-document.getElementById("unlocklifespanTimer").addEventListener("click", () => {
-    buyUpgrade("unlocklifespanTimer");
-});
-
+// For each button, when clicked buy the upgrade
+for (const btns of upgrades) {
+    document.getElementById(btns.id).addEventListener("click", () => {
+    buyUpgrade(btns.id);
+    });
+};
