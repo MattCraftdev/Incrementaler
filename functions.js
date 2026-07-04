@@ -8,7 +8,7 @@ setInterval(() => {
 
 // Time System
 let day = 0;
-let year = 14;
+let year = 0;
 
 function updateTime() {
     day += 1;
@@ -50,9 +50,11 @@ function solveMood() {
     }
 
     document.getElementById("displayMood").innerText = "Mood: " + moodStatus;
+    
 };
 
 // Time exclusive
 setInterval(() => {
     updateTime();
+    console.log(mood)
 }, 1000);

@@ -1,6 +1,6 @@
 // Connections & Variables
-
 let lifespan = 50;
+let flexbuff = 0;
 // Class OOP for progress bars
 
 class ProgressBar {
@@ -11,7 +11,7 @@ class ProgressBar {
         this.level = 1;
         this.speed = speed;
         this.element = document.getElementById(elementId);
-    }
+    };
     
     update() {
         if (this.progress < this.maxprogress) {
@@ -27,6 +27,8 @@ class ProgressBar {
 
             if (this.elementId == "vit") {
                 lifespan += 0.1;
+            } else if (this.elementId == "flex") {
+                flexbuff += 0.1;
             }
             
         };
@@ -45,6 +47,7 @@ class ProgressBar {
 
 // Progress Bars
 const vitBar = new ProgressBar("vit", 10, 100);
+const flexBar = new ProgressBar("flex", 10, 100);
 
 let activeBar = null;
 // Update Progress Bars
@@ -54,17 +57,18 @@ function updateProgress() {
     if (activeBar === "vit") {
         vitBar.update();
         document.getElementById("vitLevelDisplay").innerText = "Vitality Level: " + vitBar.getLevel();
-    } else if (activeBar === "focus") {
-        focusBar.update();
-        document.getElementById("focusLevelDisplay").innerText = "Focus Level: " + focusBar.getLevel();
+    } else if (activeBar === "flex") {
+        flexBar.update();
+        document.getElementById("flexLevelDisplay").innerText = "Flexibility Level: " + flexBar.getLevel();
 
 }};
 
 
 // Updates all speeds quickly
 function updateAllSpeeds() {
-    const baseSpeed = 10;
+    const baseSpeed = 10 + flexbuff
     vitBar.speed = baseSpeed;
+    flexBar.speed = baseSpeed;
 }
 
 // Setting interval higher = worse transitioning rate
@@ -74,4 +78,8 @@ setInterval(updateProgress, 20);
 // The buttons for progress bars, and their messages
 document.getElementById("vitbtn").addEventListener("click", () => {
     activeBar = "vit";
+});
+
+document.getElementById("flexbtn").addEventListener("click", () => {
+    activeBar = "flex";
 });

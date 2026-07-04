@@ -1,6 +1,11 @@
 Newest versions
 
-2026/07/03 - [0.7.1]
+2026/07/03 10:55 PM - [0.8.0]
+- Added another unlock/bar: flexability which increases vit's refill speed
+- Cleaned up array code for unlocks
+- Fixed some bugs/errors
+
+2026/07/03 1:35 PM - [0.7.1]
 - Indirect knowledge cap with mood
 - Added other tab for guidence on the game and stats
 - Completely changed the mood system

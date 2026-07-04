@@ -9,6 +9,9 @@ let moodStatus = "Ok";
 Ideas:
 - Knowledge Cap through mood
 - Mood alters task progress (such as on vitality)
+- Add chatbox message multiple
+- Make it so you actually lose when the lifespan runs out
+- Actually fix moood
 
 */
 
@@ -17,7 +20,7 @@ document.getElementById("createKnowledge").addEventListener("click", () => {
     if (mood<knowledgeCap) {
         knowledge += baseIncrease;
     } else {
-        say(`knowledge is ${knowledge}. Mood is ${mood}`)
+        console.log(`knowledge is ${knowledge}. Mood is ${mood}`)
     }
 
 });
