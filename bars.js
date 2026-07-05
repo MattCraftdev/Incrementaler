@@ -27,12 +27,17 @@ class ProgressBar {
 
             if (this.elementId == "vit") {
                 lifespan += 0.1;
+                
+                if (this.level == 10) {
+                    document.getElementById("flexContainer").classList.remove("hidden");
+                }
 
             } else if (this.elementId == "flex") {
                 flexbuff += 0.1;
 
             }
             
+            updateAllSpeeds();
         };
     };
 
@@ -50,6 +55,9 @@ class ProgressBar {
 // Progress Bars
 const vitBar = new ProgressBar("vit", 10, 100);
 const flexBar = new ProgressBar("flex", 10, 100);
+const knowledgeBar = new ProgressBar("knowledge", 10, 10000);
+
+
 
 let activeBar = null;
 
@@ -62,7 +70,9 @@ function updateProgress() {
     } else if (activeBar === "flex") {
         flexBar.update();
         document.getElementById("flexLevelDisplay").innerText = "Flexibility Level: " + flexBar.getLevel();
-
+    } else if (activeBar === "knowledge") {
+        knowledgeBar.update();
+        document.getElementById("knowledgeLevelDisplay").innerText = "Knowledge Level: " + knowledgeBar.getLevel();
 }};
 
 
@@ -71,6 +81,7 @@ function updateAllSpeeds() {
     const baseSpeed = 10;
     vitBar.speed = baseSpeed + flexbuff;
     flexBar.speed = baseSpeed;
+    knowledgeBar.speed = baseSpeed;
 }
 
 // Setting interval higher = worse transitioning rate
@@ -84,4 +95,8 @@ document.getElementById("vitbtn").addEventListener("click", () => {
 
 document.getElementById("flexbtn").addEventListener("click", () => {
     activeBar = "flex";
+});
+
+document.getElementById("knowledgebtn").addEventListener("click", () => {
+    activeBar = "knowledge";
 });

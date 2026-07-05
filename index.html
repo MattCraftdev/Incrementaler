@@ -17,7 +17,7 @@
         <p id= "displayDay">Day: </p>
         <p id= "displayYear">Age: </p> <p id="displayLifespan" class = "hidden">Lifespan: </p>
 
-        
+        <p id= "displayWisdom" class = "hidden">Wisdom: 0</p>        
     </div>
 
 
@@ -53,6 +53,13 @@
             </div>
         </div>
 
+        <div class = "hidden" id="knowledgeContainer">
+            <div class="progress-container" title = "Study how to learn more" id = "knowledgebtn">
+                <div class="progress-bar" id="knowledge"></div>
+                <span class= "progress-text" id = "knowledgeLevelDisplay">Knowledge Level: 1</span>
+            </div>
+        </div>
+
     </nav>
 
 
@@ -60,16 +67,16 @@
     <nav class = "tab-content" id = "Inventions">
 
         <br>
-        <button id = "unlocklifespanTimer" class = "hidden">Peer into the future - Costs 1000 Knowledge</button>
-        <button id = "unlock1" class = "hidden">Create Health Exercise Plan - Cost 100 Knowledge</button>
-        <button id = "unlock2" class = "hidden">Do flexibility exercises to increase Vilitality - Cost 250 knowledge</button>
-        <button id = "unlockwisdombtn" class = "hidden">Learn the act of wisdom - Cost</button>
+        <button id = "unlocklifespanTimer" class = "hidden upgrade">Peer into the future - Costs 1000 Knowledge</button>
+        <button id = "unlock1" class = "hidden upgrade">Create Health Exercise Plan - Cost 100 Knowledge</button>
+        <button id = "unlockwisdombtn" class = "hidden upgrade">Learn the act of wisdom - Costs 35 Knowledge</button>
+        <button id = "unlockknowledgebtn" class = "hidden upgrade">Study how to learn better - Costs 10 Wisdom</button>
 
     </nav>
     
 
     <nav class = "tab-content" id = "Work">
-        <button>awd</button>
+
 
     </nav>
 
@@ -89,11 +96,11 @@
 
     </nav>  
 
-
+    <script src="main.js" defer></script>
     <script src="functions.js" defer></script>
     <script src="bars.js" defer></script>
     <script src="upgrade.js" defer></script>
-    <script src="main.js" defer></script>
+
 
 
 </body>

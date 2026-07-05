@@ -33,22 +33,6 @@ const upgrades = [
     },
 
     {
-        id: "unlock2",
-        description: "Unlocks flexability",
-        cost: 100,
-        unlocked: false,
-        unlockamount: 125,
-        unlocktypecost: "vitlevel",
-        flavortext: "With your extensive knowledge, you gleaned to know exercise.",
-        purchased: 0,
-        maxpurchases: 1,
-        onpurchase: () => {
-            document.getElementById("flexContainer").classList.remove("hidden");
-            say("A new manual appears of out thin air. 'Flex-guide by ghosts!' Sounds spooky.");
-        }
-    },
-
-    {
         id: "unlockwisdombtn",
         description: "The act of transfering knowledge into wisdom.",
         cost: 35,
@@ -60,7 +44,24 @@ const upgrades = [
         maxpurchases: 1,
         onpurchase: () => {
             document.getElementById("switchtoWisdom").classList.remove("hidden");
+            document.getElementById("displayWisdom").classList.remove("hidden");
             say("A white beard sprouts on your chin, and your back teeth emerge.");
+        }
+    },
+
+    {
+        id: "unlockknowledgebtn",
+        description: "Know thyself.",
+        cost: 10,
+        unlocked: false,
+        unlockamount: 4,
+        unlocktypecost: "wisdom",
+        flavortext: "You feel a calling to something more.",
+        purchased: 0,
+        maxpurchases: 1,
+        onpurchase: () => {
+            document.getElementById("knowledgeContainer").classList.remove("hidden");
+            say("Learning with life");
         }
     },
 
@@ -68,9 +69,20 @@ const upgrades = [
 
 // Checks if any upgrade can be unlocked
 
+const inventionsBtn = document.querySelector('[data-tab = "Inventions"]');
+
 setInterval(() => {
     for (const loop of upgrades) {
         if (player[loop.unlocktypecost]>loop.unlockamount && loop.unlocked == false) {
+            
+            if (inventionsBtn.classList.contains("glow")) {
+
+            } else {
+            inventionsBtn.classList.add("glow");
+            console.log(`Added glow using ${inventionsBtn.classList.contains("glow")}`)
+
+            }
+
             loop.unlocked = true;
             if (document.getElementById(loop.id).classList.contains("hidden")) {
                 console.log(loop.id)

@@ -1,9 +1,17 @@
+/* Effects */
+
 .hidden {
     display:none;
 }
 
+.glow {
+    box-shadow: 0 0 20px yellow;
+}
+
+/*Tab content */
+
 .tab-content {
-  display: none;
+    display: none;
 }
 
 .tabs button{
@@ -27,7 +35,7 @@
 /* Buttons inside tabs*/
 
 .anyButton {
-    background-color:#005a95;
+    background-color:#0b8ade;
     color:rgb(0, 0, 0);
     padding: 1%;
     border: 2%;
@@ -35,6 +43,14 @@
     font-family:'Times New Roman';
 }
 
+.upgrade {
+    background-color:#be9200;
+    color:rgb(0, 0, 0);
+    padding: 1%;
+    border: 2%;
+    font-size: 100%;
+    font-family:'georgia';
+}
 /* Story box */
 
 #Story {

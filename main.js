@@ -19,7 +19,6 @@ Ideas:
 - Add chatbox message multiple
 - Potiental change to mood sys (ratio*1000)
 - Add more to upgrade system
-
 */
 
 // Knowledge accumilination system
@@ -59,5 +58,13 @@ TabButtons.forEach(button => {
 
         // Shows selected tab
         document.getElementById(tabId).style.display = "block";
+
+        if (tabId == "Inventions") {
+            inventionsBtn.classList.remove("glow");
+        }
+        console.log(`Clicking on ${tabId}`)
+
     });
 });
+
+

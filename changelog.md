@@ -1,12 +1,22 @@
 Newest versions
 
+2026/07/05 2:58 PM  - [0.11.0]
+- Added glow on inventions tab when a new upgrade shows up
+- Mild tweak with the colors
+- Added knowledge increaser, an upgrade that unlocks a knowledge bar and with each level the knowledge bar adds 1 to clicking knowledge
+
+
+2026/07/04 11:36 PM - [0.10.1]
+- Wisdom fully added, along with a hidden button and counter
+- Deleted flexability upgrade, opted for flexability to show after vitality got to level 10
+
 2026/07/04 10:58 PM - [0.10.0]
 - Actually, FINALLY fixed depression and overworked it.
 - Added a button to exchange knowledge to wisdom
 - More flavour text in upgrades
 - Added wisdom unlock
 
-2026/07/04 5:18 PM - [0.9.0]
+2026/07/04 5:18 PM - [0.9.1]
 - Optimized button system with upgrades
 - Cleaned up lifespan counter with decimal limit of 2
 - Changed core code on how player variables are

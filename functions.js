@@ -1,9 +1,11 @@
 // Display Loops
 setInterval(() => {
     document.getElementById("displayKnowledge").innerText = "Knowledge: " + player.knowledge;
-
+    document.getElementById("displayWisdom").innerText = "Wisdom: " + player.wisdom;
     solveMood();
     updateLifespan();
+
+    player.baseKnowledgeIncrease = 1*knowledgeBar.getLevel();
 }, 20);
 
 
