@@ -8,31 +8,39 @@ setInterval(() => {
 
 
 function solveMood() {
-    let ratio = Math.min(player.knowledge/player.knowledgeCap, 1) // EQ for mood over ticks, base cap 1k
+    let ratio = Math.min(player.knowledge/player.knowledgeCap, 1)
     mood = ratio*1000
     
     if (mood>=player.knowledgeCap) {
         mood = player.knowledgeCap;
-        moodStatus = "Death awaits, calmly."
+        moodStatus = "Death awaits."
     }
 
-    else if (mood>(player.knowledgeCap/25)) {
-        moodStatus = "Sad"
+    else if (mood>=(player.knowledgeCap*0.9)) {
+        moodStatus = "Depressed."
     }
 
-    else if (mood<=(player.knowledgeCap/75) && mood > 0) {
+    else if (mood>(player.knowledgeCap*0.6) && mood<(player.knowledgeCap*0.9)) {
+        moodStatus = "Sad."
+    }
+    
+    else if (mood>(player.knowledgeCap*0.4) && mood<(player.knowledgeCap*0.6)) {
+        moodStatus = "Alright."
+    }
+
+    else if (mood>(player.knowledgeCap*0.1) && mood<(player.knowledgeCap * 0.4)) {
         moodStatus = "Happy"
     }
 
-    else if (mood<=0) {
+    else if (mood<=(player.knowledgeCap*0.1)) {
         mood = 0;
         moodStatus = "Overjoyed";
+
     } else {
         moodStatus = "Ok"
     }
 
-    document.getElementById("displayMood").innerText = "Mood: " + moodStatus;
-    
+    document.getElementById("displayMood").innerText = "Mood: " + moodStatus;  
 };
 
 

@@ -6,7 +6,7 @@ const player = {
     knowledge: 0,
     knowledgeCap: 1000,
     baseKnowledgeIncrease: 1,
-
+    wisdom: 0,
 }
 
 
@@ -14,9 +14,10 @@ const player = {
 Ideas:
 - Knowledge Cap through mood
 - Mood alters task progress (such as on vitality)
+- Add campaign of fitness (affects mood poorly + increases VIT rate + increases lifespan)
+- Add coping mech which increases mood tolerance/knowledgecap
 - Add chatbox message multiple
-- Make it so you actually lose when the lifespan runs out
-- Actually fix moood
+- Potiental change to mood sys (ratio*1000)
 - Add more to upgrade system
 
 */
@@ -28,7 +29,13 @@ document.getElementById("createKnowledge").addEventListener("click", () => {
     } else {
         console.log(`knowledge is ${player.knowledge}. Mood is ${mood}`)
     }
+});
 
+document.getElementById("switchtoWisdom").addEventListener("click", () => {
+    if (player.knowledge>4) {
+        player.knowledge -= 5;
+        player.wisdom += 1;
+    }
 });
 
 // Chatbox creation to send a message

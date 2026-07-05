@@ -1,11 +1,17 @@
 Newest versions
+
+2026/07/04 10:58 PM - [0.10.0]
+- Actually, FINALLY fixed depression and overworked it.
+- Added a button to exchange knowledge to wisdom
+- More flavour text in upgrades
+- Added wisdom unlock
+
 2026/07/04 5:18 PM - [0.9.0]
 - Optimized button system with upgrades
 - Cleaned up lifespan counter with decimal limit of 2
 - Changed core code on how player variables are
 - You can buy upgrades with different vars DEP once said upgrades implemented in the future
 - Mock death added when reached lifespan's end
-
 
 2026/07/03 10:55 PM - [0.8.0]
 - Added another unlock/bar: flexability which increases vit's refill speed

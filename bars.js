@@ -1,8 +1,8 @@
 // Connections & Variables
 let lifespan = 50;
 let flexbuff = 0;
-// Class OOP for progress bars
 
+// Class OOP for progress bars
 class ProgressBar {
     constructor(elementId, speed = 1, maxprogress = 100) {
         this.elementId = elementId;
@@ -27,8 +27,10 @@ class ProgressBar {
 
             if (this.elementId == "vit") {
                 lifespan += 0.1;
+
             } else if (this.elementId == "flex") {
                 flexbuff += 0.1;
+
             }
             
         };
@@ -50,9 +52,9 @@ const vitBar = new ProgressBar("vit", 10, 100);
 const flexBar = new ProgressBar("flex", 10, 100);
 
 let activeBar = null;
+
 // Update Progress Bars
 function updateProgress() {
-
 
     if (activeBar === "vit") {
         vitBar.update();
@@ -66,8 +68,8 @@ function updateProgress() {
 
 // Updates all speeds quickly
 function updateAllSpeeds() {
-    const baseSpeed = 10 + flexbuff
-    vitBar.speed = baseSpeed;
+    const baseSpeed = 10;
+    vitBar.speed = baseSpeed + flexbuff;
     flexBar.speed = baseSpeed;
 }
 

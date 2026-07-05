@@ -38,17 +38,31 @@ const upgrades = [
         cost: 100,
         unlocked: false,
         unlockamount: 125,
-        unlocktypecost: "knowledge",
+        unlocktypecost: "vitlevel",
         flavortext: "With your extensive knowledge, you gleaned to know exercise.",
         purchased: 0,
         maxpurchases: 1,
         onpurchase: () => {
             document.getElementById("flexContainer").classList.remove("hidden");
-            say("");
+            say("A new manual appears of out thin air. 'Flex-guide by ghosts!' Sounds spooky.");
         }
     },
 
-    
+    {
+        id: "unlockwisdombtn",
+        description: "The act of transfering knowledge into wisdom.",
+        cost: 35,
+        unlocked: false,
+        unlockamount: 25,
+        unlocktypecost: "knowledge",
+        flavortext: "You feel a calling to something more.",
+        purchased: 0,
+        maxpurchases: 1,
+        onpurchase: () => {
+            document.getElementById("switchtoWisdom").classList.remove("hidden");
+            say("A white beard sprouts on your chin, and your back teeth emerge.");
+        }
+    },
 
 ]
 
