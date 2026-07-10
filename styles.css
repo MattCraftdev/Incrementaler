@@ -104,4 +104,21 @@
     z-index: 2;
 }    
 
+/* Death Screen */
+#youDied {
+    position: absolute;
+    font-weight: bold;
+    font-size: 160px;
+    z-index:10;
+    color:red;
+}
 
+#hideDeath {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 9;
+    background:rgb(241, 241, 241);
+    top: 0%;
+    left: 0%;
+}

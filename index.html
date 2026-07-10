@@ -10,12 +10,14 @@
     
 </head>
 <body>
+    <div id = "hideDeath" class = "hidden"></div>
+    <p id = "youDied" class = "hidden">You DIED!</p>
 
     <div class = "displayVaribles">
         <p id= "displayKnowledge">Knowledge: </p>
         <p id= "displayMood">Mood: </p>
         <p id= "displayDay">Day: </p>
-        <p id= "displayYear">Age: </p> <p id="displayLifespan" class = "hidden">Lifespan: </p>
+        <p id= "displayYear">Age: </p> <span id="displayLifespan" class = "hidden">Lifespan: </span>
 
         <p id= "displayWisdom" class = "hidden">Wisdom: 0</p>        
     </div>
@@ -31,37 +33,38 @@
 
     <nav class = "tab-content" id = "Creation">
         <br>
-        <button id = "createKnowledge" class = "anyButton" >Birth the seed of knowledge</button>
-        <button id = "switchtoWisdom" class = "anyButton hidden" >Become wise 5:1</button>
+        <button id = "createKnowledge" class = "anyButton" >Create knowledge</button>
+        <button id = "switchtoWisdom" class = "anyButton hidden" >Become wise, 5 Knowledge: 1 Wisdom</button>
 
+        <section>
 
-
-
-
-
-        <div class = "hidden" id="vitContainer">
-            <div class="progress-container" title = "Vitality increases your lifespan through unknown means.." id = "vitbtn">
-                <div class="progress-bar" id="vit"></div>
-                <span class= "progress-text" id = "vitLevelDisplay">Vitality Level: 1</span>
+            <div class = "hidden" id="vitContainer">
+                <div class="progress-container" title = "Vitality increases your lifespan through unknown means.." id = "vitbtn">
+                    <div class="progress-bar" id="vit"></div>
+                    <span class= "progress-text" id = "vitLevelDisplay">Vitality Level: 1</span>
+                </div>
             </div>
-        </div>
 
-        <div class = "hidden" id="flexContainer">
-            <div class="progress-container" title = "Staying flexable increases vitality growth rate!" id = "flexbtn">
-                <div class="progress-bar" id="flex"></div>
-                <span class= "progress-text" id = "flexLevelDisplay">Flexibility Level: 1</span>
+            <div class = "hidden" id="flexContainer">
+                <div class="progress-container" title = "Staying flexable increases vitality growth rate!" id = "flexbtn">
+                    <div class="progress-bar" id="flex"></div>
+                    <span class= "progress-text" id = "flexLevelDisplay">Flexibility Level: 1</span>
+                </div>
             </div>
-        </div>
 
-        <div class = "hidden" id="knowledgeContainer">
-            <div class="progress-container" title = "Study how to learn more" id = "knowledgebtn">
-                <div class="progress-bar" id="knowledge"></div>
-                <span class= "progress-text" id = "knowledgeLevelDisplay">Knowledge Level: 1</span>
+        </section>
+
+        <section>
+
+            <div class = "hidden" id="knowledgeContainer">
+                <div class="progress-container" title = "Study how to learn more" id = "knowledgebtn">
+                    <div class="progress-bar" id="knowledge"></div>
+                    <span class= "progress-text" id = "knowledgeLevelDisplay">Knowledge Level: 1</span>
+                </div>
             </div>
-        </div>
 
+        </section>
     </nav>
-
 
 
     <nav class = "tab-content" id = "Inventions">
@@ -74,9 +77,7 @@
 
     </nav>
     
-
     <nav class = "tab-content" id = "Work">
-
 
     </nav>
 
@@ -90,7 +91,8 @@
 
     <nav class = "tab-content" id = "Other">
         <h1>Help</h1>
-        <p>Knowledge: Used to unlock other upgrades</p>
+        <p>Knowledge: Used to unlock other upgrades, a core important resource
+        </p>
 
         <h1>Statistics</h1>
 
@@ -100,8 +102,6 @@
     <script src="functions.js" defer></script>
     <script src="bars.js" defer></script>
     <script src="upgrade.js" defer></script>
-
-
 
 </body>
 

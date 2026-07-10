@@ -1,6 +1,22 @@
 Newest versions
 
-2026/07/05 2:58 PM  - [0.11.0]
+2026/07/10 1:44 PM - [0.12.0]
+- Slight modifications of bars
+- Fixed a few minor errors
+- Added mood affecting base bar speed
+
+2026/07/07 5:42 PM - [0.11.2]
+- Added different scaling for each bar increase
+- Fixed some errors with the scaling as well
+- Optimized bar code (automated buttons assigning activeBar)
+
+2026/07/06 12:40 PM - [0.11.1]
+- Fixed knowledgebar scaling along with vit scaling
+- Updated lifespan/day updating
+- Added a complete death screen when dying
+
+
+2026/07/05 2:58 PM - [0.11.0]
 - Added glow on inventions tab when a new upgrade shows up
 - Mild tweak with the colors
 - Added knowledge increaser, an upgrade that unlocks a knowledge bar and with each level the knowledge bar adds 1 to clicking knowledge

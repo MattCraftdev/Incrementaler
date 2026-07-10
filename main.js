@@ -7,13 +7,13 @@ const player = {
     knowledgeCap: 1000,
     baseKnowledgeIncrease: 1,
     wisdom: 0,
+    lifespan: 50,
 }
 
 
 /*
 Ideas:
 - Knowledge Cap through mood
-- Mood alters task progress (such as on vitality)
 - Add campaign of fitness (affects mood poorly + increases VIT rate + increases lifespan)
 - Add coping mech which increases mood tolerance/knowledgecap
 - Add chatbox message multiple
@@ -66,5 +66,3 @@ TabButtons.forEach(button => {
 
     });
 });
-
-

@@ -4,8 +4,6 @@ setInterval(() => {
     document.getElementById("displayWisdom").innerText = "Wisdom: " + player.wisdom;
     solveMood();
     updateLifespan();
-
-    player.baseKnowledgeIncrease = 1*knowledgeBar.getLevel();
 }, 20);
 
 
@@ -35,15 +33,21 @@ function solveMood() {
     }
 
     else if (mood<=(player.knowledgeCap*0.1)) {
-        mood = 0;
         moodStatus = "Overjoyed";
+    }
 
-    } else {
+    else {
         moodStatus = "Ok"
     }
 
-    document.getElementById("displayMood").innerText = "Mood: " + moodStatus;  
+    document.getElementById("displayMood").innerText = "Mood: " + moodStatus;
+    
+
+    if (mood<0) {
+        mood = 0;
+    }
 };
+
 
 
 // Time System
@@ -57,7 +61,7 @@ function updateTime() {
         year += 1;
     };
 
-    if (year>=lifespan) {
+    if (year>=player.lifespan) {
         initiateDeath();
     }
 
@@ -66,14 +70,16 @@ function updateTime() {
 };
 
 function updateLifespan() {
-    const lifespanReal = lifespan.toFixed(2) // Sets decimals to max 0.XX
+    const lifespanReal = player.lifespan.toFixed(2) // Sets decimals to max 0.XX
     document.getElementById("displayLifespan").innerText = "Lifespan: " + lifespanReal;
 }
 
 setInterval(() => {
     updateTime();
-}, 1000);
+}, 500); // Day per X
 
 function initiateDeath() {
     console.log("Player has died, end.")
+    document.getElementById("youDied").classList.remove("hidden")
+    document.getElementById("hideDeath").classList.remove("hidden")
 }

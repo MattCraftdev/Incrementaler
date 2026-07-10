@@ -1,16 +1,16 @@
 // Connections & Variables
-let lifespan = 50;
 let flexbuff = 0;
 
 // Class OOP for progress bars
 class ProgressBar {
-    constructor(elementId, speed = 1, maxprogress = 100) {
+    constructor(elementId, speed = 1, maxprogress = 100, expoincrease) {
         this.elementId = elementId;
         this.progress = 0;
         this.maxprogress = maxprogress;
         this.level = 1;
         this.speed = speed;
         this.element = document.getElementById(elementId);
+        this.expoincrease = expoincrease;
     };
     
     update() {
@@ -18,26 +18,30 @@ class ProgressBar {
             this.progress += this.speed;
             let widthPercent = Math.min((this.progress / this.maxprogress) * 100, 100);
             this.element.style.width = widthPercent + "%";
+            updateAllSpeeds();
         } else {
             this.level++;
             this.progress = 0;
+
+            updateAllSpeeds();
             
-            // Increases exponentionally
-            this.maxprogress = this.maxprogress*1.2;
+            // Expo increase value
+            this.maxprogress = this.maxprogress*this.expoincrease;
 
             if (this.elementId == "vit") {
-                lifespan += 0.1;
+                player.lifespan += 0.1;
                 
                 if (this.level == 10) {
                     document.getElementById("flexContainer").classList.remove("hidden");
                 }
 
             } else if (this.elementId == "flex") {
-                flexbuff += 0.1;
+                flexbuff += 1;
 
+            } else if (this.elementId == "knowledge") {
+                 player.baseKnowledgeIncrease = knowledgeBar.getLevel();
             }
             
-            updateAllSpeeds();
         };
     };
 
@@ -53,9 +57,10 @@ class ProgressBar {
 };
 
 // Progress Bars
-const vitBar = new ProgressBar("vit", 10, 100);
-const flexBar = new ProgressBar("flex", 10, 100);
-const knowledgeBar = new ProgressBar("knowledge", 10, 10000);
+const vitBar = new ProgressBar("vit", 10, 1000, 1.2);
+const flexBar = new ProgressBar("flex", 10, 1000, 1.1);
+const knowledgeBar = new ProgressBar("knowledge", 10, 10000, 1.2);
+
 
 
 
@@ -73,30 +78,31 @@ function updateProgress() {
     } else if (activeBar === "knowledge") {
         knowledgeBar.update();
         document.getElementById("knowledgeLevelDisplay").innerText = "Knowledge Level: " + knowledgeBar.getLevel();
-}};
+    }
+    
+};
 
 
 // Updates all speeds quickly
 function updateAllSpeeds() {
-    const baseSpeed = 10;
-    vitBar.speed = baseSpeed + flexbuff;
-    flexBar.speed = baseSpeed;
-    knowledgeBar.speed = baseSpeed;
+    const currentProgress = mood/player.knowledgeCap;
+    const mooddiff = 0.5 - currentProgress;
+    const baseSpeed = 10
+
+    const baseMoodspeed = baseSpeed + mooddiff*10
+    vitBar.speed = baseMoodspeed + flexbuff;
+    flexBar.speed = baseMoodspeed;
+    knowledgeBar.speed = baseMoodspeed;
 }
 
-// Setting interval higher = worse transitioning rate
+// Setting interval higher = worse transitioning rate. Currently 
 setInterval(updateProgress, 20);
 
 
-// The buttons for progress bars, and their messages
-document.getElementById("vitbtn").addEventListener("click", () => {
-    activeBar = "vit";
-});
-
-document.getElementById("flexbtn").addEventListener("click", () => {
-    activeBar = "flex";
-});
-
-document.getElementById("knowledgebtn").addEventListener("click", () => {
-    activeBar = "knowledge";
-});
+// Gets the progress
+const progressContainers = document.getElementsByClassName('progress-container');
+for (const all of progressContainers) {
+    all.addEventListener("click", () => {
+        activeBar = all.id.replace("btn", "")
+    });
+};
