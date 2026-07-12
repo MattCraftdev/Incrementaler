@@ -1,6 +1,3 @@
-// Connections & Variables
-let flexbuff = 0;
-
 // Class OOP for progress bars
 class ProgressBar {
     constructor(elementId, speed = 1, maxprogress = 100, expoincrease) {
@@ -35,11 +32,11 @@ class ProgressBar {
                     document.getElementById("flexContainer").classList.remove("hidden");
                 }
 
-            } else if (this.elementId == "flex") {
-                flexbuff += 1;
-
             } else if (this.elementId == "knowledge") {
-                 player.baseKnowledgeIncrease = knowledgeBar.getLevel();
+                player.baseKnowledgeIncrease = knowledgeBar.getLevel();
+            } else if (this.elementId == "fitness") {
+                player.lifespan += 1;
+                player.knowledgeCap -= 1;
             }
             
         };
@@ -57,15 +54,16 @@ class ProgressBar {
 };
 
 // Progress Bars
-const vitBar = new ProgressBar("vit", 10, 1000, 1.2);
+const vitBar = new ProgressBar("vit", 10, 1000, 1.15);
 const flexBar = new ProgressBar("flex", 10, 1000, 1.1);
+const fitnessBar = new ProgressBar("fitness", 10, 2500, 1.25)
+
 const knowledgeBar = new ProgressBar("knowledge", 10, 10000, 1.2);
 
-
-
+// Vars
+let flexbuff = 0;
 
 let activeBar = null;
-
 // Update Progress Bars
 function updateProgress() {
 
@@ -78,8 +76,13 @@ function updateProgress() {
     } else if (activeBar === "knowledge") {
         knowledgeBar.update();
         document.getElementById("knowledgeLevelDisplay").innerText = "Knowledge Level: " + knowledgeBar.getLevel();
+    } else if (activeBar === "fitness") {
+        fitnessBar.update();
+        document.getElementById("fitnessLevelDisplay").innerText = "Fitness Level: " + fitnessBar.getLevel();
     }
-    
+
+    flexbuff = player.flexLevel*2;
+
 };
 
 

@@ -8,13 +8,25 @@ const player = {
     baseKnowledgeIncrease: 1,
     wisdom: 0,
     lifespan: 50,
+
+
+
+
+    get vitLevel () {
+        return vitBar.getLevel();
+    },
+    get flexLevel () {
+        return flexBar.getLevel();
+    },
+    get fitnessLevel () {
+        return fitnessBar.getLevel();
+    },
 }
 
 
 /*
 Ideas:
 - Knowledge Cap through mood
-- Add campaign of fitness (affects mood poorly + increases VIT rate + increases lifespan)
 - Add coping mech which increases mood tolerance/knowledgecap
 - Add chatbox message multiple
 - Potiental change to mood sys (ratio*1000)

@@ -4,9 +4,10 @@ const upgrades = [
         id: "unlock1",
         description: "Unlocks the ability to increase your vitality.",
         cost: 100,
+        costtype: "knowledge",
         unlocked: false,
-        unlockamount: 10,
-        unlocktypecost: "knowledge",
+        reqamount: 50,
+        reqtype: "knowledge",
         flavortext: "There's a plan I want to do. (Go to Inventions)",
         purchased: 0,
         maxpurchases: 1,
@@ -20,9 +21,10 @@ const upgrades = [
         id: "unlocklifespanTimer",
         description: "Unlocks the ability to see your lifespan.",
         cost: 1000,
+        costtype: "knowledge",
         unlocked: false,
-        unlockamount: 200,
-        unlocktypecost: "knowledge", 
+        reqamount: 200,
+        reqtype: "knowledge", 
         flavortext: "Something is being touched upon. You need to learn more to reveal it...",
         purchased: 0,
         maxpurchases: 1,
@@ -36,9 +38,10 @@ const upgrades = [
         id: "unlockwisdombtn",
         description: "The act of transfering knowledge into wisdom.",
         cost: 35,
+        costtype: "knowledge",
         unlocked: false,
-        unlockamount: 25,
-        unlocktypecost: "knowledge",
+        reqamount: 25,
+        reqtype: "knowledge",
         flavortext: "You feel a calling to something more.",
         purchased: 0,
         maxpurchases: 1,
@@ -53,14 +56,32 @@ const upgrades = [
         id: "unlockknowledgebtn",
         description: "Know thyself.",
         cost: 10,
+        costtype: "wisdom",
         unlocked: false,
-        unlockamount: 4,
-        unlocktypecost: "wisdom",
+        reqamount: 4,
+        reqtype: "wisdom",
         flavortext: "You feel a calling to something more.",
         purchased: 0,
         maxpurchases: 1,
         onpurchase: () => {
             document.getElementById("knowledgeContainer").classList.remove("hidden");
+            say("Learning with life");
+        }
+    },
+
+        {
+        id: "unlockfitnessbtn",
+        description: "Know thyself.",
+        cost: 500,
+        costtype: "knowledge",
+        unlocked: false,
+        reqamount: 25,
+        reqtype: "vitLevel",
+        flavortext: "You feel a calling to something more.",
+        purchased: 0,
+        maxpurchases: 1,
+        onpurchase: () => {
+            document.getElementById("fitnessContainer").classList.remove("hidden");
             say("Learning with life");
         }
     },
@@ -73,13 +94,13 @@ const inventionsBtn = document.querySelector('[data-tab = "Inventions"]');
 
 setInterval(() => {
     for (const loop of upgrades) {
-        if (player[loop.unlocktypecost]>loop.unlockamount && loop.unlocked == false) {
+        if (player[loop.reqtype]>=loop.reqamount && loop.unlocked == false) {
             
             if (inventionsBtn.classList.contains("glow")) {
 
             } else {
             inventionsBtn.classList.add("glow");
-            console.log(`Added glow using ${inventionsBtn.classList.contains("glow")}`)
+            console.log(`Added glow on ${loop.id} using ${inventionsBtn.classList.contains("glow")}`)
 
             }
 
@@ -98,9 +119,9 @@ setInterval(() => {
 function buyUpgrade(upgradeId) {
     const upgrade = upgrades.find(item => item.id === upgradeId);
 
-    if (upgrade && upgrade.cost<=player[upgrade.unlocktypecost] && upgrade.purchased < upgrade.maxpurchases) {
+    if (upgrade && upgrade.cost<=player[upgrade.costtype] && upgrade.purchased < upgrade.maxpurchases) {
 
-        player[upgrade.unlocktypecost] -= upgrade.cost
+        player[upgrade.costtype] -= upgrade.cost
         upgrade.purchased += 1
         document.getElementById(upgrade.id).classList.add("hidden")
         upgrade.onpurchase();
